@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<style>
+			.A {background-color:green}
+		</style>
+		<script type="text/javascript">
+		var el = document.getElementsByClassName('D1');
+		addClass(el, 'A');
+		removeClass(el, 'A');
+
+			/*function click()
+			{
+				var e1=document.getElementsByClassName("D1");
+				e1.classList.add("A");
+			}*/
+
+			function addClass(el, className) 
+			{
+			  if (el.classList)
+			    el.classList.add(className);
+			  else if (!hasClass(el, className))
+			  	 el.className += " " + className;
+			}
+
+			function removeClass(el, className) 
+			{
+			  if (el.classList)
+			    el.classList.remove(className);
+			  else if (hasClass(el, className)) 
+			  {
+			    var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+			    el.className=el.className.replace(reg, ' ');
+			  }
+
+		</script>
+	</head>
+	<body>
+		<p class="D" >
+		<input type="button" name="b1" class="D1" value="b1" onclick="click();">
+		<input type="button" name="b2" class="D1" value="b2" onclick="click();">
+		<input type="button" name="b3" class="D1" value="b3" onclick="click();">
+		<input type="button" name="b4" class="D1" value="b4" onclick="click();">
+		<input type="button" name="b5" class="D1" value="b5" onclick="click();">
+		</p>
+		<input type="button" name="reset" id="D2">
+	</body>
+</html>
